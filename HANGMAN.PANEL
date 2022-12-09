@@ -1,0 +1,86 @@
+)ATTR
+      *  TYPE(OUTPUT) COLOR(GREEN)  CAPS(OFF)
+      $  TYPE(OUTPUT) COLOR(RED)    CAPS(OFF)
+      %  TYPE(OUTPUT) COLOR(BLUE)   CAPS(ON)
+      [  TYPE(OUTPUT) COLOR(BLUE)   CAPS(OFF)
+      ;  TYPE(INPUT)  COLOR(TURQ)   CAPS(ON)
+      §  TYPE(TEXT)   COLOR(YELLOW) CAPS(OFF)
+
+)BODY
+ §=========== Hangman / Galgenmaennchen ===========
+ +
+ +
+ +
+ +   *K*L+
+ +    *J+
+ +    *I+
+ +  *F*G*H+
+ +    *E+
+ +   *C*D+
+ +  *A  *B+
+ +
+ +
+ + Gesuchter Begriff: %BEGRIFF                                                +
+ +
+ +
+ +
+ + Bereits ausgewaehlte Buchstaben:
+ + $BENUTZT                                                                   +
+ +
+ +
+ +
+ +[ABFRAGE                      ;EINGABE+
+ +
+ +
+ +
+ +*ERGEBNIS                                                                  +
+ +
+ +
+ +
+ +
+ +
+ +
+ +
+ +
+ + Spielregeln:
+ + - Gueltige Buchstaben sind: A-Z,Ä,Ö,Ü,ß.
+ + - Nach 12 nicht vorhandenen Buchstaben, haben Sie verloren.
+
+)INIT
+&EINGABE=&Z
+IF(&ZAEHLER>=1)
+  .ATTR(A)='COLOR(RED)'
+IF(&ZAEHLER>=2)
+  .ATTR(B)='COLOR(RED)'
+IF(&ZAEHLER>=3)
+  .ATTR(C)='COLOR(RED)'
+IF(&ZAEHLER>=4)
+  .ATTR(D)='COLOR(RED)'
+IF(&ZAEHLER>=5)
+  .ATTR(E)='COLOR(RED)'
+IF(&ZAEHLER>=6)
+  .ATTR(F)='COLOR(RED)'
+IF(&ZAEHLER>=7)
+  .ATTR(G)='COLOR(RED)'
+IF(&ZAEHLER>=8)
+  .ATTR(H)='COLOR(RED)'
+IF(&ZAEHLER>=9)
+  .ATTR(I)='COLOR(RED)'
+IF(&ZAEHLER>=10)
+  .ATTR(J)='COLOR(RED)'
+IF(&ZAEHLER>=11)
+  .ATTR(K)='COLOR(RED)'
+IF(&ZAEHLER>=12)
+  .ATTR(L)='COLOR(RED)'
+IF(&STATUS='GEWONNEN')
+  .ATTR(BEGRIFF)='COLOR(YELLOW)'
+IF(&STATUS='VERLOREN')
+  &BEGRIFF=&LOESUNG
+  .ATTR(BEGRIFF)='COLOR(YELLOW)'
+
+)REINIT
+
+)PROC
+
+
+)END
