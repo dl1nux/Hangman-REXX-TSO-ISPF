@@ -20,8 +20,12 @@ Hinweise:
 - Die Datei HANGMAN.PANEL muss in eine Library, welche über die ISPPLIB zu finden ist
   und das Panel-Member sollte "HANGMAN" heißen. Es kann auch anders lauten, dies
   muss aber im REXX-Code angepasst werden.
-- Die Datei HANGMAN.WORDS muss ebenfalls in ein Member kopiert werden. Sie enthält die Ratewörter für das Spiel. Sie kann beliebig verändert und erweitert werden.
+- Die Datei HANGMAN.WORDS muss ebenfalls in ein Member kopiert werden. Sie enthält die 
+  Ratewörter für das Spiel. Sie kann beliebig verändert und erweitert werden.
 - Ob Codepage, Zeilenumbrüche etc. zu euch korrekt übertragen werden, kann ich
   nicht garantieren. Bitte bei der Übernahme kontrollieren. Am einfachsten
   wird es wohl sein, den Code per Copy&Paste über den 3270 Emulator zu 
   übertragen.
+- Damit das Spiel jedoch nicht so "brutal" wirkt, habe ich auf den "Galgen" verzichtet.
+
+![Screenshot](HANGMAN.PNG "Screenshot")
