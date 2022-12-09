@@ -4,17 +4,17 @@
 
 /* Maennchen definieren */
 A="/"; B="\"; C="/"; D="\"; E="O"; F="/";
-G="0"; H="\"; I="V"; J="Ö"; K="^"; L="^"
+G="0"; H="\"; I="V"; J="Ã–"; K="^"; L="^"
 
 /* Variablen vordefinieren */
 BENUTZT=
-GUELTIG="ABCDEFGHIJKLMNOPQRSTUVWXYZäöüß"
+GUELTIG="ABCDEFGHIJKLMNOPQRSTUVWXYZÃ¤Ã¶Ã¼ÃŸ"
 ERGEBNIS="Vorzeitiges Spielende mit 'exit'"
 ZAEHLER=0
 ABFRAGE="Bitte Buchstabe eingeben:"
 
 /* Datenquelle fuer Woerterbuch definieren */
-WOERTERBUCH="PS793.USER.EXEC(WOERTER)"
+WOERTERBUCH="USERID.USER.EXEC(WORDS)"
 
 /* Ratewort zufaellig auswaehlen */
 "ALLOC DD(QUELLE) DA('"WOERTERBUCH"') SHR REUSE"
@@ -26,13 +26,13 @@ LOESUNG=RATEWORT
 
 /* Neue Variable mit Suchbegriff (BEGRIFF) definieren */
 TRANSNEU="------------------------------"
-TRANSALT="ABCDEFGHIJKLMNOPQRSTUVWXYZäöüß"
+TRANSALT="ABCDEFGHIJKLMNOPQRSTUVWXYZÃ¤Ã¶Ã¼ÃŸ"
 BEGRIFF=translate(RATEWORT,TRANSNEU,TRANSALT)
 
 /* Schleifenbearbeitung fuer Spiel beginnen */
 do until ENDE="YES"
    /* Panel aufrufen und Eingabe anfordern */
-   address ispexec "display PANEL(HANG)"
+   address ispexec "display PANEL(HANGMAN)"
    /* Notausgang pruefen */
    if EINGABE="EXIT" then leave
    /* Pruefen ob Eingabe gueltig ist */
@@ -89,6 +89,6 @@ select
 end
 
 /* Spielergebnis bekanntgeben */
-address ispexec "display PANEL(HANG)"
+address ispexec "display (HANGMAN)"
 
 exit
